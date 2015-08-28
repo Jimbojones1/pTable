@@ -19,7 +19,7 @@
 
 $(document).ready(function(){
 
-  $.ajax({
+  $.ajaxSetup({
     beforeSend: function(xhr){
       xhr.setRequestHeader('Authorization', 'Token token=1063e26fd6840bc33633161db11dd60a')
     },
@@ -34,7 +34,43 @@ $(document).ready(function(){
     }
   })
 
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:3000/api/periodics',
+    dataType: 'json',
+    success: function(data){
+      console.log(data);
+    },
+    error: function(err){
+      console.log(err);
+    }
+  })
 
+  periodic.active.collection = new periodic.blueprints.collection;
 
+});
 
+var periodic = periodic || {};
+periodic.active = periodic.active || {};
+periodic.blueprints = periodic.blueprints || {};
+
+/*------------------------------------
+  Single Model Conctructor
+  -----------------------------------*/
+periodic.blueprints.model = Backbone.Model.extend({
+
+  initialize: function(){
+    console.log('a model is ready');
+  }
+})
+
+periodic.blueprints.collection = Backbone.Collection.extend({
+  url: 'http://localhost:3000/api/periodics',
+  model: periodic.blueprints.model,
+  initialize: function(){
+    console.log('a collection is ready');
+
+    this.fetch();
+    console.log(this.fetch());
+  }
 });
