@@ -34,6 +34,9 @@ td {
   border: 1px solid red;
   padding: 0.5rem;
   overflow: scroll;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
 }
 
 ul {
@@ -59,4 +62,44 @@ li {
 .atomicmass {
   font-size: 0.5em;
   font-weight: bold;
+}
+
+.alkaliMetals {
+  background-color: rgba(170, 154, 213, 0.71);
+}
+
+.alkaliEarth {
+  background-color: rgba(205, 29, 29, 0.65);
+}
+
+.transitionMetals {
+  background-color: rgba(233, 125, 56, 0.53);
+}
+
+.postTranMetals {
+  background-color: rgba(22, 198, 39, 0.57);
+}
+
+.halogens {
+  background-color: rgba(242, 240, 57, 0.64);
+}
+
+.nobleGases {
+  background-color: rgba(157, 212, 236, 0.68);
+}
+
+.metalloids {
+  background-color: rgba(123, 132, 134, 0.29);
+}
+
+.otherNonmetals {
+  background-color: rgba(121, 232, 212, 0.57);
+}
+
+.Lanthanoids {
+  background-color: rgba(233, 166, 227, 0.53);
+}
+
+.Actinoids {
+  background-color: rgba(146, 164, 126, 0.42);
 }
