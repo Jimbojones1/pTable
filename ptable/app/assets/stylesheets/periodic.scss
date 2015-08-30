@@ -1,10 +1,39 @@
 // Place all the styles related to the periodic controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  width: 100%;
+
+}
+
+*, *::before, *::after {
+  box-sizing:border-box;
+}
+
+.periodic {
+  width: 85%;
+  table-layout: fixed;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+tbody {
+  height: 200px;
+  table-layout: fixed;
+}
+
+.f-block {
+  width: 75%;
+  table-layout: fixed;
+  overflow: hidden;
+  margin-top: 2%;
+  margin-left: 17%;
+}
 
 td {
   border: 1px solid red;
   padding: 0.5rem;
+  overflow: scroll;
 }
 
 ul {
@@ -28,5 +57,6 @@ li {
 }
 
 .atomicmass {
-  font-size: 0.7em;
+  font-size: 0.5em;
+  font-weight: bold;
 }
