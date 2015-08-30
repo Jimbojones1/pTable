@@ -17,39 +17,29 @@
 //= require underscore
 //= require backbone
 
+
+
 $(document).ready(function(){
 
-  $.ajaxSetup({
-    beforeSend: function(xhr){
-      xhr.setRequestHeader('Authorization', 'Token token=1063e26fd6840bc33633161db11dd60a')
-    },
-    type: 'GET',
-    url: 'http://localhost:3000/api/periodics',
-    dataType: 'json',
-    success: function(data){
-      console.log(data);
-    },
-    error: function(err){
-      console.log(err);
-    }
-  })
 
-  $.ajax({
-    type: 'GET',
-    url: 'http://localhost:3000/api/periodics',
-    dataType: 'json',
-    success: function(data){
-      console.log(data);
-    },
-    error: function(err){
-      console.log(err);
-    }
-  })
 
-  periodic.active.collection = new periodic.blueprints.collection;
+
+
+  periodic.active.collection = new periodic.blueprints.collection();
+  periodic.active.collectionView = new periodic.blueprints.collectionView({
+
+        collection: periodic.active.collection
+
+  });
 
 });
 
+
+$.ajaxSetup({
+  beforeSend: function(xhr){
+    xhr.setRequestHeader('Authorization', 'Token token=' + global.apiKey)
+  }
+});
 var periodic = periodic || {};
 periodic.active = periodic.active || {};
 periodic.blueprints = periodic.blueprints || {};
@@ -71,6 +61,66 @@ periodic.blueprints.collection = Backbone.Collection.extend({
     console.log('a collection is ready');
 
     this.fetch();
-    console.log(this.fetch());
+
   }
+});
+
+periodic.blueprints.collectionView = Backbone.View.extend({
+
+  initialize: function(){
+    console.log('collectionView is ready');
+
+    this.render();
+
+    var that = this;
+
+    this.collection.on('sync', function(){
+
+      that.render();
+
+    })
+  },
+  render: function() {
+
+    this.$el.html('');  //whenever the collection view is rendered it clears
+    //the table so no duplication occures as data changes
+
+    var models = this.collection.models;
+
+    for (var i in models) {
+      var elements = models[i];
+
+
+    new periodic.blueprints.modelView({
+
+      model: elements
+
+
+      });
+    }
+  }
+});
+
+periodic.blueprints.modelView = Backbone.View.extend({
+
+    initialize:  function(){
+      console.log('my modelView is working');
+
+      this.$el = $("#"+this.model.attributes.atomicnumber);
+
+
+      this.render();
+
+
+    },
+    render: function(){
+
+      var elements = this.model.attributes;
+
+
+      this.$el.html("<ul><li class='atomicnumber'>"+ elements.atomicnumber + "</li><li class='symbol'>" + elements.symbol + "</li><li class='element'>" + elements.element + "</li><li class='atomicmass'>" + elements.atomicmass + "</li>");
+
+
+
+    }
 });

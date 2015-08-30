@@ -6,6 +6,7 @@ class Api::PeriodicsController < ApplicationController
 
 
   def index
+
     render json: Periodic.all
 
   end

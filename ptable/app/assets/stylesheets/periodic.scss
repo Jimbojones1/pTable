@@ -1,3 +1,32 @@
 // Place all the styles related to the periodic controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+td {
+  border: 1px solid red;
+  padding: 0.5rem;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+li {
+  vertical-align: middle;
+  text-align: center;
+  padding: 0.1em;
+}
+
+.symbol {
+  font-weight: bolder;
+}
+
+.element {
+  font-size: 0.7em;
+}
+
+.atomicmass {
+  font-size: 0.7em;
+}
