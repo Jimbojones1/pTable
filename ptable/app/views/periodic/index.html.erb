@@ -3,19 +3,62 @@ var global = global || {};
 global.apiKey= '<%= @key %>';
 </script>
 
-<h1>Hi</h1>
+<h1>Periodic Table</h1>
 
 <table class="periodic">
+  <thead class='phead'>
+    <tr>
+      <td class='columns'>1</td>
+      <td class='columns'>2</td>
+      <td class='columns'>3</td>
+      <td class='columns'>4</td>
+      <td class='columns'>5</td>
+      <td class='columns'>6</td>
+      <td class='columns'>7</td>
+      <td class='columns'>8</td>
+      <td class='columns'>9</td>
+      <td class='columns'>10</td>
+      <td class='columns'>11</td>
+      <td class='columns'>12</td>
+      <td class='columns'>13</td>
+      <td class='columns'>14</td>
+      <td class='columns'>15</td>
+      <td class='columns'>16</td>
+      <td class='columns'>17</td>
+      <td class='columns'>18</td>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td id="1"  class='otherNonmetals'></td>
       <td id=""></td>
-      <td colspan="10" rowspan="3"></td>
+      <td colspan="10" rowspan="3">
+        <ul class='Labels'>
+          <li class='labelMetals'><h3>Metals</h3></li>
+          <li class='labelMetals'><button type="button" class="AlkaliMetalButton">Alkali Metals</button></li>
+          <li class='labelMetals'><button type="button">Alkali earth metals</button></li>
+          <li class='labelMetals'><button type="button">Lanthanoids</button></li>
+          <li class='labelMetals'><button type="button">Actinoids</button></li>
+          <li class='labelMetals'><button type="button">Transition metals</button></li>
+          <li class='labelMetals'><button type="button">Post-transition metals</button></li>
+        </ul>
+        <ul class='Labels'>
+          <li class='labelMetals'><h3>NonMetals</h3></li>
+          <li class='labelMetals'><button type="button" name="button">Noble Gases</button></li>
+          <li class='labelMetals'><button type="button" name="button">Halogens</button></li>
+          <li class='labelMetals'><button type="button" name="button">Other Metals</button></li>
+        </ul>
+        <ul class='Labels'>
+            <li class='labelMetals'><h3>Metalloids</h3></li>
+          <li class='labelMetals'><button type="button" name="button">Metalloids</button></li>
+        </ul>
+
+      </td>
       <td colspan="5"></td>
       <td id="2" class='nobleGases'></td>
     </tr>
     <tr>
-      <td id="3"  class='alkaliMetals'></td>
+      <td id="3" class='alkaliMetals'></td>
       <td id="4" class='alkaliEarth'></td>
       <td id="5" class='metalloids'></td>
       <td id="6" class='otherNonmetals'></td>

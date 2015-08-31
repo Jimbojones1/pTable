@@ -22,9 +22,6 @@
 $(document).ready(function(){
 
 
-
-
-
   periodic.active.collection = new periodic.blueprints.collection();
   periodic.active.collectionView = new periodic.blueprints.collectionView({
 
@@ -32,7 +29,21 @@ $(document).ready(function(){
 
   });
 
+  $('.AlkaliMetalButton').on('click', function(){
+    console.log('my button is working');
+    $('.alkaliMetals').hover(
+      function() {
+        $(this).addClass('hover');
+      }
+    )
+
+  })
+
+
+
 });
+
+
 
 
 $.ajaxSetup({
@@ -90,11 +101,9 @@ periodic.blueprints.collectionView = Backbone.View.extend({
     for (var i in models) {
       var elements = models[i];
 
-
     new periodic.blueprints.modelView({
 
       model: elements
-
 
       });
     }
@@ -108,19 +117,13 @@ periodic.blueprints.modelView = Backbone.View.extend({
 
       this.$el = $("#"+this.model.attributes.atomicnumber);
 
-
       this.render();
-
 
     },
     render: function(){
 
       var elements = this.model.attributes;
 
-
       this.$el.html("<ul><li class='atomicnumber'>"+ elements.atomicnumber + "</li><li class='symbol'>" + elements.symbol + "</li><li class='element'>" + elements.element + "</li><li class='atomicmass'>" + elements.atomicmass + "</li>");
-
-
-
     }
 });
